@@ -9,30 +9,30 @@ const props = defineProps({
 <template>
     <header >
         <nav :class="{'justify-center' : isScrollTop}">
-            <div class="logo scroll-top-logo">
+            <div :class="['logo' ,{'scroll-top-logo': isScrollTop}]">
                 <img src="./logo/logo.jpg" alt="">
             </div>
             <div :class="['nav-container', 'd-flex', {'scroll-top-nav-container' : isScrollTop}]">
-                <div :class="['nav-item', {'scroll-top-nav-item':isScrollTop}] ">
+                
+                <a href="#" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex">mdi-home-outline</v-icon>
                     </div>
                     <p>首頁</p>
-                </div >
-                <div :class="['nav-item', {'scroll-top-nav-item' :isScrollTop} ]">
+                </a >
+                <a href="" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex ">mdi-coffee-outline</v-icon>
                     </div>
                     <p>關於我們</p>
-                </div >
-                <div :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
+                </a >
+                <a href="" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex ">mdi-silverware-variant</v-icon>
                     </div>
                     <p>最新商品</p>
                     <div class="list-container">
                         <ul>
-                            <li></li>
                             <li>紙製免洗餐具</li>
                             <li>塑膠免洗餐具</li>
                             <li>竹.木製餐具</li>
@@ -42,13 +42,13 @@ const props = defineProps({
 
                         </ul>
                     </div>
-                </div >
-                <div :class="['nav-item', {'scroll-top-nav-item' :isScrollTop} ]">
+                </a >
+                <a href="" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex">mdi-email-outline</v-icon>
                     </div>
                     <p>聯絡我們</p>
-                </div >
+                </a >
             </div>
         </nav>
         <div class="banner" v-if="isBiggerMd">
@@ -67,9 +67,6 @@ const props = defineProps({
 $main-color :hsl(37, 93%, 49%) ;
 $main-color-dark-1 : hsl(28, 82%, 50%);
 $transition-time : .5s;
-// .isNotScrollTopHover{
-//                         background-color: blue;
-//                     }
 
 
 header{
@@ -83,8 +80,8 @@ header{
         display: flex;
         position: relative;
         .logo{
-            max-width: 15%;
             min-width: 120px;
+            max-width: 200px;
             border-bottom-left-radius: 100%;
             border-bottom-right-radius: 100%;
             object-fit: cover;
@@ -98,9 +95,8 @@ header{
                 opacity: .9;
             }
             &.scroll-top-logo{
-                min-width: 20%;
+                max-width: 230px;
             }
-
         }
         .nav-container{
             width: 100%;
@@ -138,6 +134,11 @@ header{
                 font-size: 1.5rem;
                 transition: $transition-time;
                 box-sizing: border-box;
+                text-decoration: none;
+                &:link,
+                &:visited{
+                    color: white;
+                }
                 &:hover .icon{
                     transform: rotate(-30deg) translateY(-20px);
                 }
@@ -159,18 +160,16 @@ header{
                 &:nth-child(3){
                     &:hover .list-container{
                         opacity: 1;
-                        transform: translateX(-50%) translateY(420px);
+                        visibility: visible;
+                        transform: translateX(-50%) translateY(80%);
                     }
-                    // @media screen and (max-width: 960px)  {
-                    //     &:hover .list-container{
-                    //     opacity: 1;
-                    //     transform: translateX(-50%) translateY(50px);
-                    // }
-
-                    // }
+                }
+                &.isNotScrollTopHover:hover p{
+                    color: gray;
                 }
                 &.isNotScrollTopHover:hover .list-container{
-                    transform: translateX(-50%) translateY(330px);
+                    transform: translateX(-50%) translateY(66%);
+                    color: white;
                     }
                 
                 &.scroll-top-nav-item{
@@ -192,21 +191,43 @@ header{
                 .list-container{
                     position: absolute;
                     min-width: 250px;
-                    transform: translateX(-50%) translateY(-10%);
                     right: 50%;
                     left: 50%;
-                    top: -220px;
+                    transform: translateX(-50%) scale(.1);
                     background-color: $main-color-dark-1;
                     border-radius: 10px;
                     opacity: 0;
+                    visibility: hidden;
                     transition: 1s;
                     ul{
-                    list-style: none;
-                    font-size: 1.5rem;
-                    >li{
-                        margin: 20px 0;
-                        box-sizing: border-box;
-                    }
+                        list-style: none;
+                        font-size: 1rem;
+
+                        >li{
+                            padding : 20px 0;
+                            box-sizing: border-box;
+                            position: relative;
+                            transition: .5s;
+                            &:not(:last-child) {
+                                &::after{
+                                    content: '';
+                                    position: absolute;
+                                    width: 10%;
+                                    bottom: 0;
+                                    left: 45%;
+                                    transition: .5s;
+                                    border-top: 1px dotted white;
+                                }
+                            }
+                            &:hover{
+                                color: gray;
+                            }
+
+                            &:hover::after {
+                                width: 70%;
+                                left: 15%;
+                            }
+                        }
                     }
                     
                 }

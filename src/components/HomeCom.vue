@@ -1,23 +1,21 @@
 <template>
     <div >
-        <Nav :isScrollTop="isScrollTop" :isBiggerMd="isBiggerMd"/>
         <DisplayWindow @isScrollTop="isScrollTopHandler" @isBiggerMd = "isBiggerMdHandler"/>
-
+        <ContactUs/>
     </div>
 </template>
 
 <script setup>
 import Nav from "./home/NavCom.vue"
 import DisplayWindow from "./home/DisplayWindow.vue"
-import { ref } from "@vue/reactivity"
-const isScrollTop = ref(null)
-const isBiggerMd = ref(null)
+import ContactUs from "./home/ContactUs.vue"
+const emit = defineEmits('isScrollTop')
 
 const isScrollTopHandler = (value) =>{
-    isScrollTop.value = value
+    emit('isScrollTop', value)
 }
 
 const isBiggerMdHandler = (value) => {
-    isBiggerMd.value = value
+    emit('isBiggerMd', value)
 }
 </script>

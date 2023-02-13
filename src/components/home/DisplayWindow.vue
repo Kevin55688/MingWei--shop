@@ -41,7 +41,8 @@ const observe = new IntersectionObserver(callback,option)
 const observeBanner = new IntersectionObserver(callbackBanner , option)
 watch(windowSize,() => {
     if(windowSize.x > 960) {
-        isScrollTop.value = true
+        // isScrollTop.value = false
+        title.value.getBoundingClientRect().y > 0 ? isScrollTop.value = true : isScrollTop.value = false
         observe.observe(title.value)
     } else {
         isScrollTop.value = false

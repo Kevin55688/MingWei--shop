@@ -1,16 +1,21 @@
 <template>
-  <HomeCom/>
+  <Nav :isScrollTop="isScrollTop" :isBiggerMd="isBiggerMd"/>
+  <HomeCom @isScrollTop="isScrollTopHandler" @isBiggerMd = "isBiggerMdHandler"/>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
+import { defineComponent, ref } from 'vue';
+import Nav from "../components/home/NavCom.vue"
 import HomeCom from '../components/HomeCom.vue'
-export default defineComponent({
-  name: 'HomeView',
+const isScrollTop = ref(null)
+const isBiggerMd = ref(null)
 
-  components: {
-    HomeCom,
-  },
-});
+const isScrollTopHandler = (value) =>{
+    isScrollTop.value = value
+}
+
+const isBiggerMdHandler = (value) => {
+    isBiggerMd.value = value
+}
+
 </script>
