@@ -2,8 +2,7 @@
 </script>
 
 <template>
-  <div>123</div>
-  <div class="test">234</div>
+  <div class="test">Contact Us</div>
 </template>
 
 <style scoped>

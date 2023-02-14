@@ -3,7 +3,7 @@
 
 <template>
   <div>123</div>
-  <div class="test">234</div>
+  <div class="test">New Products</div>
 </template>
 
 <style scoped>

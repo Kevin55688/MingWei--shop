@@ -1,32 +1,47 @@
 
 <script setup>
+import { ref } from "@vue/reactivity"
+import { useRouter } from 'vue-router'
+const emit = defineEmits('isRoutChange')
+const router = useRouter()
 const props = defineProps({
     isScrollTop : Boolean,
     isBiggerMd : Boolean,
 })
+const isRoutChange = ref(null)
+const toHome = () => {
+    isRoutChange.value = false
+    emit('isRoutChange' , isRoutChange.value)
+    router.replace('/')
+}
+const toOther = (val) => {
+    isRoutChange.value = true
+    emit('isRoutChange' , isRoutChange.value)
+    router.push(val)
+}
 </script>
 
 <template>
     <header >
         <nav :class="{'justify-center' : isScrollTop}">
-            <div :class="['logo' ,{'scroll-top-logo': isScrollTop}]">
-                <img src="./logo/logo.jpg" alt="">
-            </div>
+            <a href="/" :class="['logo' ,{'scroll-top-logo': isScrollTop}]" >
+                <img src="../components/home/logo/logo.png" alt="">
+            </a>
             <div :class="['nav-container', 'd-flex', {'scroll-top-nav-container' : isScrollTop}]">
                 
-                <a href="#" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
+                <div href="#" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toHome">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex">mdi-home-outline</v-icon>
                     </div>
                     <p>首頁</p>
-                </a >
-                <a href="" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
+                </div >
+                <div :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toOther('/about')">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex ">mdi-coffee-outline</v-icon>
                     </div>
                     <p>關於我們</p>
-                </a >
-                <a href="" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
+                </div >
+                <div  :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toOther('/newproducts')">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex ">mdi-silverware-variant</v-icon>
                     </div>
@@ -42,13 +57,13 @@ const props = defineProps({
 
                         </ul>
                     </div>
-                </a >
-                <a href="" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
+                </div >
+                <div  :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toOther('/contactus')">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex">mdi-email-outline</v-icon>
                     </div>
                     <p>聯絡我們</p>
-                </a >
+                </div >
             </div>
         </nav>
         <div class="banner" v-if="isBiggerMd">
@@ -67,8 +82,6 @@ const props = defineProps({
 $main-color :hsl(37, 93%, 49%) ;
 $main-color-dark-1 : hsl(28, 82%, 50%);
 $transition-time : .5s;
-
-
 header{
     position: fixed;
     top: 0;
@@ -134,11 +147,12 @@ header{
                 font-size: 1.5rem;
                 transition: $transition-time;
                 box-sizing: border-box;
-                text-decoration: none;
-                &:link,
-                &:visited{
-                    color: white;
-                }
+                // text-decoration: none;
+                user-select: none;
+                // &:link,
+                // &:visited{
+                //     color: white;
+                // }
                 &:hover .icon{
                     transform: rotate(-30deg) translateY(-20px);
                 }
