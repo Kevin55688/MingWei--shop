@@ -33,6 +33,7 @@ footer{
     opacity: .7;
     left: 0;
     pointer-events: none;
+    z-index: 1;
   }
 }
 /*
@@ -51,6 +52,8 @@ footer{
   flex-direction: column;
   font-size: 1.2rem;
   width: 100%;
+  position: relative;
+  z-index: 2;
   >.main{
     display: flex;
     align-items: center;

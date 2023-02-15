@@ -1,9 +1,11 @@
-<script>
+<script setup>
+import ContactUs from "./AboutContactUs.vue"
 </script>
 
 <template>
-  <div>123</div>
-  <div class="test">234</div>
+  <div>
+    <ContactUs/>
+  </div>
 </template>
 
 <style scoped>

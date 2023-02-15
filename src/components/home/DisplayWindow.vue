@@ -1,5 +1,5 @@
 <template>
-    <div class="container" ref="container">
+    <div class="container">
         <div class="main-title" ref="title">
             <div class="logo">
                 <img src="@/pic/logo.png" alt="">

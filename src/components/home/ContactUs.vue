@@ -106,7 +106,7 @@
 </template>
 
 <style lang="scss" scoped>
-$rotate:2deg;
+$rotate:3deg;
 /*table of contents 
 1.container
   1.1 main-title
@@ -158,6 +158,8 @@ $rotate:2deg;
       line-height: 2rem;
       transform: rotate(-$rotate);
       position: relative;
+      top: 3rem;
+      left: -2rem;
       @media screen and (max-width : 960px) {
         width: 100%;
       }
