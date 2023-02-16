@@ -4,6 +4,7 @@
     <div class="isTopSensor" ref="isTopSensor"></div>
     <router-view></router-view>
     <HomeCom v-if="!isRoutChange"/>
+    <CallCenter/>
     <Footer/>
 
 </template>
@@ -13,6 +14,7 @@ import {ref ,reactive} from 'vue';
 import { onMounted, watch } from "@vue/runtime-core";
 import Nav from "../components/NavCom.vue"
 import HomeCom from '../components/HomeCom.vue'
+import CallCenter from '../components/CallCenter.vue'
 import Footer from '../components/FooterCom.vue'
 const windowSize = reactive({
     x:0

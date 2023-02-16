@@ -87,7 +87,7 @@ header{
     top: 0;
     right: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 500;
     nav {
         width: 100%;
         display: flex;
@@ -147,12 +147,7 @@ header{
                 font-size: 1.5rem;
                 transition: $transition-time;
                 box-sizing: border-box;
-                // text-decoration: none;
                 user-select: none;
-                // &:link,
-                // &:visited{
-                //     color: white;
-                // }
                 &:hover .icon{
                     transform: rotate(-30deg) translateY(-20px);
                 }
