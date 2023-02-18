@@ -24,7 +24,7 @@ const isBiggerMd = ref(null)
 const isTopSensor = ref(null)
 const isRoutChange = ref(false)
 const option = {
-        rootMargin : "4000px 0px -200px 0px",
+        rootMargin : "4000px 0px 0px 0px",
         threshold : 0
     }
 const  callback = (entries) => {
@@ -49,7 +49,6 @@ const observe = new IntersectionObserver(callback,option)
 const observeRouter = new IntersectionObserver(callbackRouter , option)
 
 const toOtherRoutHandler = (val) => {
-    console.log(val);
     isRoutChange.value = val
 }
 watch(windowSize,() => {
@@ -78,8 +77,8 @@ onMounted (() => {
     left: 0;
     width: 200px;
     height: 200px;
-    top: 600px;
-    z-index: -9999;
+    top: 105vh;
+    z-index: 9999;
     opacity: 0;
     visibility: 0;
 }

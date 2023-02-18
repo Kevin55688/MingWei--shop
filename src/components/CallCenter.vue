@@ -18,10 +18,10 @@ const toTop = () => {
 
 <template>
     <div class="container">
-        <div class="line">
+        <a href="#" class="line">
             <img src="@/pic/line.png" alt="">
             <p>線上客服</p>
-        </div>
+        </a>
         <div class="cart">
             <p>購物車</p>
             <div class="icon">
@@ -65,6 +65,9 @@ const toTop = () => {
         height: 7rem;
         bottom: -11%;
         left: 0;
+    }
+    a{
+        text-decoration: none;
     }
     >.line{
         width: 100%;

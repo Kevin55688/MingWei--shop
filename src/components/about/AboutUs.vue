@@ -7,7 +7,7 @@
         <div class="logo">
             <img src="@/pic/logo.png" alt="">
         </div>
-        <p>contact us</p>
+        <p>about us</p>
     </div>
     <div class="introduction">
       <div class="introduction-side">
@@ -30,7 +30,7 @@
 </template>
 
 <style lang="scss" scoped>
-$rotate:3deg;
+$rotate:2deg;
 /*table of contents 
 1.container
   1.1 side-title
@@ -86,8 +86,6 @@ $rotate:3deg;
       line-height: 2rem;
       transform: rotate(-$rotate);
       position: relative;
-      top: 3rem;
-      left: -2rem;
       @media screen and (max-width : 960px) {
         width: 100%;
       }

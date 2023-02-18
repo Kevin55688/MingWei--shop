@@ -9,15 +9,18 @@ const props = defineProps({
     isBiggerMd : Boolean,
 })
 const isRoutChange = ref(null)
+
 const toHome = () => {
     isRoutChange.value = false
     emit('isRoutChange' , isRoutChange.value)
     router.replace('/')
+    document.documentElement.scrollTop = 0
 }
 const toOther = (val) => {
     isRoutChange.value = true
     emit('isRoutChange' , isRoutChange.value)
     router.push(val)
+    document.documentElement.scrollTop = 0
 }
 </script>
 

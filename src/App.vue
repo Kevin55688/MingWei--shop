@@ -13,5 +13,6 @@
 .app{
   background-image: url('./pic/floor-tile.png');
   font-family: 'Noto Sans TC','微軟正黑體',sans-serif;
+  overflow: hidden;
 }
 </style>
