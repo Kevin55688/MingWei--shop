@@ -53,7 +53,7 @@ const toOtherRoutHandler = (val) => {
 }
 watch(windowSize,() => {
     if(windowSize.x > 960) {
-        isTopSensor.value.getBoundingClientRect().y > 0 ? isScrollTop.value = true : isScrollTop.value = false
+        isTopSensor.value.getBoundingClientRect().y > window.innerHeight ? isScrollTop.value = true : isScrollTop.value = false
         observe.observe(isTopSensor.value)
     } else {
         isScrollTop.value = false
@@ -77,7 +77,7 @@ onMounted (() => {
     left: 0;
     width: 200px;
     height: 200px;
-    top: 105vh;
+    top: 101vh;
     z-index: 9999;
     opacity: 0;
     visibility: 0;

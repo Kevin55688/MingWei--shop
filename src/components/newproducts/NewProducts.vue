@@ -1,8 +1,6 @@
 <script setup>
 import SideBar from './SideBar.vue'
 import { ref } from "@vue/reactivity";
-
-
 const menuItem = ref([
   {text : '紙製免洗餐具' , isActive : true , list : [
                                                       {id : 1 , item : '全部' ,isTabActive : true},
@@ -59,6 +57,7 @@ const selectedTabHandler = (val) => {
 <template>
 <div class="container">
   <SideBar :menuItem="menuItem" :tabsList="tabsList" @selectItem = "selectItemHandler" @selectTab="selectedTabHandler"/>
+  <router-view></router-view>
 </div>
 </template>
 
@@ -77,9 +76,11 @@ $main-color:hsl(75.08,100%,37.45%);
             1.1.2.2 tabs
 */
 .container{
-  margin-top : 310px;
+  margin: 0 8%;
+  margin-top : 610px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 </style>

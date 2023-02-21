@@ -44,7 +44,7 @@ const toOther = (val) => {
                     </div>
                     <p>關於我們</p>
                 </div >
-                <div  :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toOther('/newproducts')">
+                <div  :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toOther('/allproducts')">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex ">mdi-silverware-variant</v-icon>
                     </div>

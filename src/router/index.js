@@ -4,6 +4,8 @@ import About from "../components/about/about.vue"
 import HomeCom from "../components/HomeCom.vue"
 import NewProducts from "../components/newproducts/NewProducts.vue"
 import ContactUs from "../components/contactus/ContactUs.vue"
+import ProductsWindow from "../components/newproducts/ProductsWindow.vue"
+import LunchBox from "../components/newproducts/pds/LunchBox.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,6 +21,16 @@ const router = createRouter({
         {
           path: "/newproducts",
           component : NewProducts,
+          children : [
+            {
+              path: "/allproducts",
+              component : ProductsWindow,
+            },
+            {
+              path: "/allproducts/lunchbox",
+              component : LunchBox,
+            }
+        ]
         },
         {
           path: "/contactus",

@@ -16,34 +16,32 @@ const selectTab = (selectedTab) => {
 </script>
 
 <template>
-<div class="container">
-  <div class="side-bar-zone">
-    <div class="header">
-      <div class="title">
-            <img src="@/pic/logo.png" alt="">
-            <p>products</p>
+    <div class="side-bar-zone">
+      <div class="header">
+        <div class="title">
+              <img src="@/pic/logo.png" alt="">
+              <p>products</p>
+        </div>
+        <div class="filter" >
+          <input type="search" placeholder="產品搜尋" >
+          <button>
+            <v-icon icon="mdi-magnify"></v-icon>
+          </button>
+        </div>
       </div>
-      <div class="filter" >
-        <input type="search" placeholder="產品搜尋" >
-        <button>
-          <v-icon icon="mdi-magnify"></v-icon>
-        </button>
-      </div>
-    </div>
-    <div class="tabs-group">
-      <div class="menu">
-        <ul>
-          <li v-for="item in menuItem" :key="item.text" :class="{'active' : item.isActive}" @click="selectItem(item)">{{ item.text  }}</li>
-      </ul>
-      </div>
-      <div class="tabs">
-        <ul>
-          <li v-for="tab in tabsList" :key="tab.id" :class="{'tabActive' : tab.isTabActive}" @click="selectTab(tab)">{{tab.item}}</li>
+      <div class="tabs-group">
+        <div class="menu">
+          <ul>
+            <li v-for="item in menuItem" :key="item.text" :class="{'active' : item.isActive}" @click="selectItem(item)">{{ item.text  }}</li>
         </ul>
+        </div>
+        <div class="tabs">
+          <ul>
+            <li v-for="tab in tabsList" :key="tab.id" :class="{'tabActive' : tab.isTabActive}" @click="selectTab(tab)">{{tab.item}}</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 </template>
 
 <style lang="scss" scoped>
@@ -60,16 +58,15 @@ $main-color:hsl(75.08,100%,37.45%);
             1.1.2.1 menu
             1.1.2.2 tabs
 */
-.container{
-  >.side-bar-zone {
-    margin: 0 8%;
+  .side-bar-zone {
+    max-width: 1300px;
     background-color: white;
-    width: 100%;
     display: flex;
     justify-content: center;
     border-radius: 50px;
     overflow: hidden;
     flex-wrap: wrap;
+    align-items: center;
     >.header{
       width: 30%;
       padding: 2rem 1rem;
@@ -136,6 +133,8 @@ $main-color:hsl(75.08,100%,37.45%);
     >.tabs-group{
       width: 70%;
       padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
       @media screen and (max-width: 960px) {
         width: 100%;
       }
@@ -211,6 +210,7 @@ $main-color:hsl(75.08,100%,37.45%);
             letter-spacing: .2rem;
             transition: .6s;
             user-select: none;
+            
             &.tabActive{
               background-color: $main-color;
               color: white;
@@ -224,5 +224,5 @@ $main-color:hsl(75.08,100%,37.45%);
       }
     }
   }
-}
+
 </style>
