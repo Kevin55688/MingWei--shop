@@ -1,23 +1,41 @@
 <script setup>
 import Pic from '@/pic/紙餐盒.png'
 import { reactive } from "@vue/reactivity";
-
-
-
+const emit = defineEmits(['updateLocalStorage'])
 const pdsData = reactive({
   src :  Pic,
   title : '紙餐盒',
   items : ['規格1','規格2','規格3',],
   selected:['規格1'],
-  format : [{title: '高度' , content : '49mm'},{title: '口徑' , content : '51mm'},{title: '入數/箱' , content : '2000'},{title: '外箱尺寸' , content : '410*260*310mm'},],
-  quantity : 1
+  format : [{title: '高度' , content : '49mm'},{title: '口徑' , content : '51mm'},{title: '入數/箱' , content : '2000'},{title: '每箱價格' , content : '$1000'},{title: '外箱尺寸' , content : '410*260*310mm'},],
+  quantity : 1 ,
+  price : 1000,
 })
-
-
 const minus = () => {
     if(pdsData.quantity <= 1) return 
     pdsData.quantity -= 1
 }
+
+
+
+
+const setLocalData = () => {
+  const updatePds = {title : pdsData.title , quantity : pdsData.quantity, src : pdsData.src ,price : pdsData.price}
+
+  let currentLocalData
+  // 若已建立cartList，則 currentLocalData 等於 原cartList + 新商品資料
+  if (JSON.parse(localStorage.getItem('cartList'))) {
+    currentLocalData = [...JSON.parse(localStorage.getItem('cartList')) , updatePds]
+  } 
+  // 若尚未建立cartList，則currentLocalData等於新商品資料
+  else {
+    currentLocalData = [updatePds]
+  }
+  // 將更新的資料寫入localStorage的cartList中
+  localStorage.setItem('cartList' , JSON.stringify(currentLocalData))
+  emit('updateLocalStorage')
+}
+
 </script>
 
 
@@ -68,7 +86,7 @@ const minus = () => {
         </div>
       </div>
       <div class="add-cart">
-        <button>加入購物車</button>
+        <button @click="setLocalData">加入購物車</button>
       </div>
     </div>
   </div>

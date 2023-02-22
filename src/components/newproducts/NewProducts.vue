@@ -32,6 +32,7 @@ const menuItem = ref([
                                                     {id : 1 , item : '全部',isTabActive : true},
                                                                             ]}
 ])
+const emit = defineEmits(['updateLocalStorage'])
 const tabsList = ref(menuItem.value[0].list)
 const selectItem = (selectedItem) => {
   menuItem.value.forEach((item) => {
@@ -52,12 +53,16 @@ const selectedTabHandler = (val) => {
     tab.isTabActive = tab === val
   })
 }
+
+const updateLocalStorageHandler = () => {
+  emit('updateLocalStorage')
+}
 </script>
 
 <template>
 <div class="container">
   <SideBar :menuItem="menuItem" :tabsList="tabsList" @selectItem = "selectItemHandler" @selectTab="selectedTabHandler"/>
-  <router-view></router-view>
+  <router-view @updateLocalStorage="updateLocalStorageHandler"></router-view>
 </div>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
-    <Nav :isScrollTop="isScrollTop" :isBiggerMd="isBiggerMd" @isRoutChange="toOtherRoutHandler"/>
+    <Nav :isScrollTop="isScrollTop" :isBiggerMd="isBiggerMd"/>
     <!-- 判斷是否在網頁最上面 -->
     <div class="isTopSensor" ref="isTopSensor"></div>
-    <router-view></router-view>
-    <HomeCom v-if="!isRoutChange"/>
-    <CallCenter/>
+    <router-view @updateLocalStorage="updateLocalStorageHandler"></router-view>
+    <HomeCom v-if="route.path === '/'"/>
+    <CallCenter :currentLocalData="currentLocalData" @deleteCart="deleteCartHandler"/>
     <Footer/>
 
 </template>
@@ -16,6 +16,8 @@ import Nav from "../components/NavCom.vue"
 import HomeCom from '../components/HomeCom.vue'
 import CallCenter from '../components/CallCenter.vue'
 import Footer from '../components/FooterCom.vue'
+import { useRoute } from 'vue-router';
+const route = useRoute()
 const windowSize = reactive({
     x:0
 })
@@ -51,6 +53,23 @@ const observeRouter = new IntersectionObserver(callbackRouter , option)
 const toOtherRoutHandler = (val) => {
     isRoutChange.value = val
 }
+
+
+//取得最新localstorage內的購物車清單
+const currentLocalData = ref(null)
+const updateLocalStorageHandler = () => {
+    if (!JSON.parse(localStorage.getItem('cartList'))) return 
+    currentLocalData.value = [...JSON.parse(localStorage.getItem('cartList'))]
+}
+// 刪除購物車資料
+const deleteCartHandler = (cartItem) => {
+    currentLocalData.value = currentLocalData.value.filter((item) => {
+        return item != cartItem
+    })
+    // 重新更新localStorage中的資料
+    localStorage.setItem('cartList' , JSON.stringify(currentLocalData.value))
+}
+
 watch(windowSize,() => {
     if(windowSize.x > 960) {
         isTopSensor.value.getBoundingClientRect().y > window.innerHeight ? isScrollTop.value = true : isScrollTop.value = false
@@ -61,6 +80,7 @@ watch(windowSize,() => {
     }
 })
 onMounted (() => {
+    updateLocalStorageHandler()
     windowSize.x = window.innerWidth
     window.onresize = () => {
         windowSize.x = window.innerWidth

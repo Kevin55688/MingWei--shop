@@ -1,24 +1,17 @@
 
 <script setup>
-import { ref } from "@vue/reactivity"
 import { useRouter } from 'vue-router'
-const emit = defineEmits('isRoutChange')
 const router = useRouter()
 const props = defineProps({
     isScrollTop : Boolean,
     isBiggerMd : Boolean,
 })
-const isRoutChange = ref(null)
 
 const toHome = () => {
-    isRoutChange.value = false
-    emit('isRoutChange' , isRoutChange.value)
     router.replace('/')
     document.documentElement.scrollTop = 0
 }
 const toOther = (val) => {
-    isRoutChange.value = true
-    emit('isRoutChange' , isRoutChange.value)
     router.push(val)
     document.documentElement.scrollTop = 0
 }
