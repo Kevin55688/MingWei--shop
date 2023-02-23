@@ -18,7 +18,7 @@ const toPds = (val) => {
             <h3>餐盒</h3>
         </div>
     </div>
-    <div class="card-container mx-5 my-10">
+    <div class="card-container mx-5 my-10" @click="toPds('/allproducts/paperbowl')">
         <v-card
         class="cards">
             <img src="@/pic/紙碗.jpg" alt="">
@@ -27,7 +27,7 @@ const toPds = (val) => {
             <h3>紙碗</h3>
         </div>
     </div>
-    <div class="card-container mx-5 my-10">
+    <div class="card-container mx-5 my-10"  @click="toPds('/allproducts/mealcup')">
         <v-card
         class="cards">
             <img src="@/pic/餐杯.jpg" alt="">
@@ -36,7 +36,7 @@ const toPds = (val) => {
             <h3>紙杯</h3>
         </div>
     </div>
-    <div class="card-container mx-5 my-10">
+    <div class="card-container mx-5 my-10" @click="toPds('/allproducts/plasticspoon')">
         <v-card
         class="cards">
             <img src="@/pic/湯匙.jpeg" alt="">
@@ -48,13 +48,13 @@ const toPds = (val) => {
     <div class="card-container mx-5 my-10">
         <v-card
         class="cards">
-            <img src="@/pic/筷子.jpg" alt="">
+            <img src="@/pic/筷子.jpg" alt="" @click="toPds('/allproducts/plasticchopstick')">
         </v-card>
         <div class="second-title">
             <h3>筷子</h3>
         </div>
     </div>
-    <div class="card-container mx-5 my-10">
+    <div class="card-container mx-5 my-10" @click="toPds('/allproducts/woodenfork')">
         <v-card
         class="cards">
             <img src="@/pic/叉子.png" alt="">

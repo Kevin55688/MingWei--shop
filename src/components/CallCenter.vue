@@ -1,5 +1,5 @@
 <script setup>
-import { computed} from "vue";
+import { computed ,ref} from "vue";
 const props = defineProps({
     currentLocalData : Array,
 })
@@ -26,11 +26,12 @@ const totalPrice = computed (() => {
     if(!props.currentLocalData) return 0
     let total = 0
     for (let i = 0 ; i < props.currentLocalData.length ; i++) {
-        total += props.currentLocalData[i].price
+        total += props.currentLocalData[i].price * props.currentLocalData[i].quantity
     }
     return total
 })
 
+const isCartListShow = ref(false)
 </script>
 
 <template>
@@ -48,10 +49,11 @@ const totalPrice = computed (() => {
                     </div>
                     <div v-else>0</div>
                 </div>
-                <v-icon icon="mdi-cart-variant"></v-icon>
+                <v-icon icon="mdi-cart-variant" @click="isCartListShow = !isCartListShow"></v-icon>
             </div>
-            <div class="cart-list">
-                <div class="close">X</div>
+            <!-- <div :class="[cart-list,{'isShow' : isCartListShow}]"> -->
+            <div :class="['cart-list', {'isShow' : isCartListShow}]">
+                <div class="close" @click="isCartListShow = false">X</div>
                 <div class="list-container">
                     <ul>
                         <li>
@@ -62,7 +64,7 @@ const totalPrice = computed (() => {
                                 <p>總計</p>
                             </div>
                         </li>
-                        <li v-for="(item,index) in currentLocalData" :key="index" v-if="currentLocalData.length > 0">
+                        <li v-for="(item,index) in currentLocalData" :key="index" v-if="currentLocalData">
                             <div class="item-title">
                                 <div class="delete" @click="deleteHandler(item)">X</div>
                                 <div class="pic">
@@ -238,12 +240,33 @@ const totalPrice = computed (() => {
             padding: 1.5rem 2rem;
             min-width: 540px;
             max-height: 400px;
+            width : 1px;
+            overflow: hidden;
             position: absolute;
             background-color: white;
             border: 5px solid hsl(38.61,54.59%,63.73%);
             border-radius: 50px;
-            top: -100%;
-            right: 100%;
+            transform: scale(1%);
+            opacity: 0;
+            visibility: hidden;
+            top: -20px;
+            right: -240px;
+            transition : .5s;
+            @media screen and (max-width : 600px) {
+                top:-160px;
+                right: -200px;
+            }
+            &.isShow{
+                opacity: 1 ; 
+                visibility:visible;
+                transform: scale(100%);
+                top: -100%;
+                right: 100%;
+                @media screen and (max-width : 600px) {
+                    top:-380px;
+                    right: -50px;
+                }
+            }
             >.close{
                 position: absolute;
                 width: 20px;
