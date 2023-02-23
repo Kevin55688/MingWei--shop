@@ -70,7 +70,6 @@ $main-color:hsl(37.18,100%,50%);
 $second-color : hsl(38.61,54.59%,63.73%);
 .container {
     background-color: hsl(42,62.5%,96.86%);
-    // width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -78,6 +77,9 @@ $second-color : hsl(38.61,54.59%,63.73%);
     align-items: center;
     margin: 500px auto;
     max-width: 1300px;
+    @media screen  and (max-width: 1300px){
+        margin: 500px auto;
+    }
     
     &::before{
         content: '';

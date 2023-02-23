@@ -17,25 +17,28 @@
         <!-- 第一排 -->
         <v-row no-gutters>
           <v-col
+          cols="12"
           sm="2">
-            <v-sheet class="pa-2 ma-2 text-h6 input-title">
+            <v-sheet class="pa-2 text-h6 input-title">
               姓名<p style="color:red">*</p>
             </v-sheet>
           </v-col>
           <v-col
+          cols="12"
           sm="6">
-            <v-sheet class="pa-2 ma-2">
+            <v-sheet class="pa-2">
               <input type="text">
             </v-sheet>
           </v-col>
           <v-col
+          cols="12"
           sm="4">
-            <v-sheet class="pa-2 ma-2">
+            <v-sheet class="pa-2">
               <div class="radio">
-                <input type="radio" id="man" value="man" name="sex" class="ma-1">
-                <label for="man" class="ma-1 font-weight-bold text-h6">先生</label>
+                <input type="radio" id="man" value="man" name="sex">
+                <label for="man" class=" font-weight-bold text-h6">先生</label>
                 <input type="radio" id="male" value="male" name="sex" class="">
-                <label for="male" class="ma-1 font-weight-bold text-h6">小姐</label>
+                <label for="male" class=" font-weight-bold text-h6">小姐</label>
               </div>
             </v-sheet>
           </v-col>
@@ -43,14 +46,16 @@
       <!-- 第二排 -->
         <v-row no-gutters>
           <v-col
+          cols="12"
           sm="2">
-            <v-sheet class="pa-2 ma-2 text-h6 input-title">
+            <v-sheet class="pa-2 text-h6 input-title">
               電話<p style="color:red">*</p>
             </v-sheet>
           </v-col>
           <v-col
+          cols="12"
           sm="10">
-            <v-sheet class="pa-2 ma-2">
+            <v-sheet class="pa-2">
               <input type="text">
             </v-sheet>
           </v-col>
@@ -58,14 +63,16 @@
         <!-- 第三排 -->
         <v-row no-gutters>
           <v-col
+          cols="12"
           sm="2">
-            <v-sheet class="pa-2 ma-2 text-h6 input-title">
+            <v-sheet class="pa-2 text-h6 input-title">
               Email<p style="color:red">*</p>
             </v-sheet>
           </v-col>
           <v-col
+          cols="12"
           sm="10">
-            <v-sheet class="pa-2 ma-2">
+            <v-sheet class="pa-2">
               <input type="email">
             </v-sheet>
           </v-col>
@@ -73,14 +80,16 @@
         <!-- 第四排 -->
         <v-row no-gutters>
           <v-col
+          cols="12"
           sm="2">
-            <v-sheet class="pa-2 ma-2 text-h6 input-title test">
+            <v-sheet class="pa-2 text-h6 input-title test">
               留言<p style="color:red">*</p>
             </v-sheet>
           </v-col>
           <v-col
+          cols="12"
           sm="10">
-            <v-sheet class="pa-2 ma-2">
+            <v-sheet class="pa-2">
               <input type="textarea">
             </v-sheet>
           </v-col>
@@ -120,6 +129,9 @@ $rotate:2deg;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media screen  and (max-width: 1300px){
+    margin: 3% 8%;
+  }
   >.main-title{
     border-top-left-radius: 350px;
     border-top-right-radius: 350px;

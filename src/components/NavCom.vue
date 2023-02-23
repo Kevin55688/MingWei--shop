@@ -20,7 +20,7 @@ const toOther = (val) => {
 <template>
     <header >
         <nav :class="{'justify-center' : isScrollTop}">
-            <a href="/" :class="['logo' ,{'scroll-top-logo': isScrollTop}]" >
+            <a @click="toHome" :class="['logo' ,{'scroll-top-logo': isScrollTop}]" >
                 <img src="../components/home/logo/logo.png" alt="">
             </a>
             <div :class="['nav-container', 'd-flex', {'scroll-top-nav-container' : isScrollTop}]">
