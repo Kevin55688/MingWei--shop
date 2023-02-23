@@ -30,7 +30,13 @@ const totalPrice = computed (() => {
     }
     return total
 })
-
+const hasCartList = computed (() => {
+    if (!props.currentLocalData  || props.currentLocalData.length <= 0) {
+        return false
+    } else {
+        return true
+    }
+})
 const isCartListShow = ref(false)
 </script>
 
@@ -64,7 +70,7 @@ const isCartListShow = ref(false)
                                 <p>總計</p>
                             </div>
                         </li>
-                        <li v-for="(item,index) in currentLocalData" :key="index" v-if="currentLocalData">
+                        <li v-for="(item,index) in currentLocalData" :key="index" v-if="hasCartList">
                             <div class="item-title">
                                 <div class="delete" @click="deleteHandler(item)">X</div>
                                 <div class="pic">
@@ -76,7 +82,7 @@ const isCartListShow = ref(false)
                                 <div class="price">${{item.price}}</div>
                                 <div class="quantity">{{ item.quantity }}</div>
                                 <div class="total">${{ item.price *  item.quantity}}</div>
-                            </div>                                                    
+                            </div>                                                  
                         </li>
                         <li v-else>購物車內尚未有任何商品</li>
                     </ul>
