@@ -70,13 +70,14 @@ $main-color:hsl(37.18,100%,50%);
 $second-color : hsl(38.61,54.59%,63.73%);
 .container {
     background-color: hsl(42,62.5%,96.86%);
-    width: 100%;
+    // width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 500px;
+    margin: 500px auto;
+    max-width: 1300px;
     
     &::before{
         content: '';
@@ -107,6 +108,7 @@ $second-color : hsl(38.61,54.59%,63.73%);
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        margin: 2rem 0;
             >.card-container{
                 display: flex;
                 justify-content: center;

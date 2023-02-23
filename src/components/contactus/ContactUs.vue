@@ -114,7 +114,8 @@ $rotate:2deg;
 */
 
 .container{
-  margin: 500px 8% 0;
+  margin: 500px 8%;
+  max-width: 1300px;
   display: flex;
   justify-content: center;
   align-items: center;

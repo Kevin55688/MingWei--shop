@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="about-container">
     <div class="main-title">
         <div class="logo">
             <img src="@/pic/logo.png" alt="">
@@ -32,7 +32,7 @@
 <style lang="scss" scoped>
 $rotate:2deg;
 /*table of contents 
-1.container
+1.about-container
   1.1 side-title
   1.2.introduction
     1.2.1 introduction-side
@@ -44,8 +44,8 @@ $rotate:2deg;
         1.2.2.2.1 pic
 */
 
-.container{
-  margin: 500px 8% 0;
+.about-container{
+  margin: 500px 8%;
   display: flex;
   justify-content: center;
   align-items: center;
