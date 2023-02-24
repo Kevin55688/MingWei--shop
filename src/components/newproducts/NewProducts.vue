@@ -87,5 +87,8 @@ $main-color:hsl(75.08,100%,37.45%);
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media screen  and ( max-width: 600px){
+    margin-top: 500px;
+  }
 }
 </style>

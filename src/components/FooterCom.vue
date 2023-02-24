@@ -54,14 +54,16 @@ footer{
   width: 100%;
   position: relative;
   z-index: 2;
+  // max-height: 400px;
+  // min-height:400px;
   >.main{
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px dotted hsl(40,1.35%,56.27%);
+    padding: 0 2rem;
     >.address{
-      margin:  1rem 2rem;
-      padding: 0rem 2rem;
+      margin:  1rem 2rem 1rem 0;
       border-right: 1px dotted hsl(40,1.35%,56.27%);
       >.title{
         background-color: hsl(38.61,54.59%,63.73%);
@@ -79,6 +81,10 @@ footer{
         strong{
           font-size: 1.5rem;
           letter-spacing: .2rem;
+          @media screen  and (max-width:600px) {
+            font-size: 1.3rem;
+            letter-spacing: normal;
+          }
           
         }
       }

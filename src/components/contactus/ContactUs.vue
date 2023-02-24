@@ -130,7 +130,10 @@ $rotate:2deg;
   align-items: center;
   flex-direction: column;
   @media screen  and (max-width: 1300px){
-    margin: 500px 8%;
+    margin: 500px 8% 0;
+  }
+  @media screen  and (max-width: 600px){
+    margin: 500px 2% 0;
   }
   >.main-title{
     border-top-left-radius: 350px;
@@ -143,6 +146,18 @@ $rotate:2deg;
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    @media screen  and (max-width: 600px){
+      width: 300px;
+      height: 150px;
+    }
+    >.logo{
+      @media screen  and (max-width: 600px){
+        width: 30%;
+        img{
+          width: 100%;
+        };
+      }
+    }
     p{
       color: hsl(180,0.99%,80.2%);
       letter-spacing: .5rem;

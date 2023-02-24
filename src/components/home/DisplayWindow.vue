@@ -77,8 +77,11 @@ $second-color : hsl(38.61,54.59%,63.73%);
     align-items: center;
     margin: 500px auto;
     max-width: 1300px;
-    @media screen  and (max-width: 1300px){
-        margin: 500px auto;
+    // @media screen  and (max-width: 1300px){
+    //     margin: 500px 8%;
+    // }
+    @media screen  and (max-width: 600px){
+        margin: 500px auto 2rem;
     }
     
     &::before{
@@ -104,6 +107,9 @@ $second-color : hsl(38.61,54.59%,63.73%);
         background-color: hsl(42,62.5%,96.86%);
         display: flex;
         flex-direction: column;
+        @media screen  and (max-width: 600px){
+            margin-bottom: 0;
+        }
     }
     .pdtList{
         display: flex;
@@ -111,6 +117,9 @@ $second-color : hsl(38.61,54.59%,63.73%);
         align-items: center;
         flex-wrap: wrap;
         margin: 2rem 0;
+        @media screen  and (max-width: 600px){
+            margin: 0 ;
+        }
             >.card-container{
                 display: flex;
                 justify-content: center;
@@ -129,15 +138,24 @@ $second-color : hsl(38.61,54.59%,63.73%);
                 >.cards{
                     max-width: 250px;
                     min-height: 250px; 
+                    // height: 200px;
                     box-sizing: border-box;
                     border-top-left-radius: 50%;
                     border-top-right-radius: 50%;
                     border: 8px solid $second-color;
                     position: relative;
+                    @media screen and (max-width:600px) {
+                        min-width: 150px;
+                        min-height: 150px; 
+                    }
                     >img{
-                        height: 250px;
-                        vertical-align:bottom;
+                        height: 234px;
+                        vertical-align: bottom;
                         transition: .5s;
+                        @media screen and (max-width:600px) {
+                            width: 134px;
+                            height: 134px;
+                        }
                     }
                 }
                 >.second-title{
@@ -150,6 +168,10 @@ $second-color : hsl(38.61,54.59%,63.73%);
                     left: 0;
                     font-weight:bold;
                     transition: 1s;
+                    @media screen and (max-width:600px) {
+                        padding: .5rem 1rem;
+                        bottom: -1.5rem;
+                    }
                 }
             }
     }

@@ -24,7 +24,6 @@ const toOther = (val) => {
                 <img src="../components/home/logo/logo.png" alt="">
             </a>
             <div :class="['nav-container', 'd-flex', {'scroll-top-nav-container' : isScrollTop}]">
-                
                 <div href="#" :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toHome">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex">mdi-home-outline</v-icon>
@@ -98,6 +97,10 @@ header{
             box-shadow: 0px 13px 33px 8px rgba(0,0,0,0.35);
             z-index: 2;
             transition: $transition-time;
+            @media screen  and (max-width: 600px){
+                min-width: 110px;
+                max-width: 110px;
+            }
             img {
                 width: 100%;
                 vertical-align: bottom;
@@ -144,6 +147,16 @@ header{
                 transition: $transition-time;
                 box-sizing: border-box;
                 user-select: none;
+                @media screen  and (max-width: 600px){
+                    width: calc(100%/5);
+                    margin: 0 auto;
+                    font-size: 1.3rem;
+                }
+                &:first-child {
+                    @media screen  and (max-width: 600px){
+                        display: none;
+                    }
+                }
                 &:hover .icon{
                     transform: rotate(-30deg) translateY(-20px);
                 }
@@ -155,6 +168,14 @@ header{
                         position: absolute;
                         right: 10px;
                         border-left: 5px dotted white;
+                        @media screen  and (max-width: 600px){
+                            width: 160%;
+                            right: 50%;
+                            left: -30%;
+                            border-left: none;
+                            border-top : 5px dotted hsl(53.65,100%,50%);
+                            border-bottom : 5px dotted hsl(53.65,100%,50%);
+                        }
                     }
                 }
                 .icon{
@@ -263,6 +284,9 @@ header{
             font-weight: bold;
             font-size: 20px;
             text-align: center;
+            @media screen  and (max-width: 600px){
+                top: 45%;
+            }
         }
         
     }

@@ -6,7 +6,6 @@
     <HomeCom v-if="route.path === '/'"/>
     <CallCenter :currentLocalData="currentLocalData" @deleteCart="deleteCartHandler"/>
     <Footer/>
-
 </template>
 
 <script setup>

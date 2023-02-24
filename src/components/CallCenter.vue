@@ -146,8 +146,9 @@ const isCartListShow = ref(false)
         width: 100%;
         display: flex;
         height: 7rem;
-        bottom: -11%;
-        left: 0;
+        bottom: -4rem;
+        // left: 0;
+        right: 0;
     }
     a{
         text-decoration: none;
@@ -246,7 +247,6 @@ const isCartListShow = ref(false)
             padding: 1.5rem 2rem;
             min-width: 540px;
             max-height: 400px;
-            width : 1px;
             overflow: hidden;
             position: absolute;
             background-color: white;
@@ -259,8 +259,10 @@ const isCartListShow = ref(false)
             right: -240px;
             transition : .5s;
             @media screen and (max-width : 600px) {
+                min-width: 300px;
                 top:-160px;
                 right: -200px;
+                padding: 2rem .5rem;
             }
             &.isShow{
                 opacity: 1 ; 
@@ -269,8 +271,11 @@ const isCartListShow = ref(false)
                 top: -100%;
                 right: 100%;
                 @media screen and (max-width : 600px) {
-                    top:-380px;
-                    right: -50px;
+                    // top:-380px;
+                    // right: -50px;
+                    top: -400px;
+                    right: 0;
+
                 }
             }
             >.close{
@@ -348,8 +353,15 @@ const isCartListShow = ref(false)
             >.confirm{
                 display: flex;
                 align-items: center;
+                @media screen and (max-width:600px) {
+                    flex-direction: column;
+                }
                 >.totalPrice{
                     margin-right: 2rem;
+                    @media screen and (max-width:600px) {
+                        margin-right: 0;
+                        margin-bottom: 1rem;
+                }
                 }
                 >.btn {
                     button{
