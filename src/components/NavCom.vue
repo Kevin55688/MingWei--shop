@@ -36,19 +36,19 @@ const toOther = (val) => {
                     </div>
                     <p>關於我們</p>
                 </div >
-                <div  :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]" @click="toOther('/allproducts')">
+                <div  :class="['nav-item', {'scroll-top-nav-item' :isScrollTop ,'isNotScrollTopHover' : !isScrollTop} ]">
                     <div class="icon">
                         <v-icon size="60px" class="d-none d-md-flex ">mdi-silverware-variant</v-icon>
                     </div>
                     <p>最新商品</p>
                     <div class="list-container">
                         <ul>
-                            <li>紙製免洗餐具</li>
-                            <li>塑膠免洗餐具</li>
-                            <li>竹.木製餐具</li>
-                            <li>鋁箔製餐具</li>
-                            <li>包裝材料</li>
-                            <li>清潔用品</li>
+                            <li @click="toOther('/allproducts')">紙製免洗餐具</li>
+                            <li @click="toOther('/allproducts')">塑膠免洗餐具</li>
+                            <li @click="toOther('/allproducts')">竹.木製餐具</li>
+                            <li @click="toOther('/allproducts')">鋁箔製餐具</li>
+                            <li @click="toOther('/allproducts')">包裝材料</li>
+                            <li @click="toOther('/allproducts')">清潔用品</li>
 
                         </ul>
                     </div>
